@@ -1,0 +1,52 @@
+<div class="tab-page">
+		<ion-searchbar [(ngModel)]="data.filterValue" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"
+				[showCancelButton]="shouldShowCancel" 
+				debounce = "500"
+		>
+		</ion-searchbar>
+	
+		<ion-grid>
+			<ion-row>
+				<ion-col class="d-none d-md-block col-2">&nbsp;</ion-col>
+				<ion-col class="grid-list">
+	
+					<div class="grid-header">
+						<ion-grid class="item-header">
+							<ion-row>
+								<ion-col class="text-center col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3 align-self-start d-none d-sm-block ">
+									Code
+								</ion-col>
+								<ion-col class="text-center col-xl-10 col-lg-10 col-md-10 col-sm-9 col-9 d-none d-sm-block">
+									Name
+								</ion-col>
+							</ion-row>
+						</ion-grid>
+					</div>
+	
+					<div class="item-list">
+						<ion-grid class="item-list">
+							<ion-row align-items-center wrap *ngFor="let item of data.filtered" (click)="propertyUnits(item)">
+								<ion-col class="d-block d-sm-none col-3">Code: </ion-col>
+								<ion-col class="text-center col-xl-2 col-lg-2 col-md-2 col-sm-3 col-9 align-self-start">
+									{{item.Code}}
+								</ion-col>
+	
+								<ion-col class="d-block d-sm-none col-3">Name: </ion-col>
+								<ion-col class="col-xl-10 col-lg-10 col-md-10 col-sm-9 col-9 ">
+									{{item.MarketingName}}
+								</ion-col>
+								<ion-col class="text-justify col-xl-12 col-sm-12 col-12" *ngIf="item.setting.clicked">
+									<div class="PropertyInformation">
+										<property-information [property]="item"></property-information>
+										<!-- property-information: <testcomponent></testcomponent> -->
+									</div>
+								</ion-col>
+							</ion-row>
+						</ion-grid>
+					</div>
+	
+				</ion-col>
+				<ion-col class="d-none d-md-block col-2">&nbsp;</ion-col>
+			</ion-row>
+		</ion-grid>
+	</div>

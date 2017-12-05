@@ -1,0 +1,33 @@
+// page-property {
+	
+// 	}
+
+// .grid{
+// 	max-height: 100vh;
+// 	overflow: auto;
+// }
+$search-bar-height : 55px;
+$grid-header-height : 45px;
+$misc-page-height : 55px; // unaccounted for spacing
+$misc-page-width : 10px;
+
+.grid-header{
+	max-height: $grid-header-height;
+}
+.grid-list{
+	//margin-bottom: $grid-height;
+	overflow-y:auto;
+	overflow-x: hidden;
+	//max-width: calc(100vw - #{ $misc-page-width} );
+	max-height: calc( 100vh - #{ $search-bar-height +  $grid-header-height + $misc-page-height} );
+	
+}
+.PropertyInformation{
+	height: 70vh;
+	max-height: 70rem;
+}
+
+.item-list > ion-row.row:nth-child(even) {background: #CCC}
+.item-list > ion-row.row:nth-child(odd) {background: #FFF}
+
+.item-header > ion-row > ion-col {background: #CCC; font-weight: bold;}

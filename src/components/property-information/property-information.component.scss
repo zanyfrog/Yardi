@@ -1,0 +1,23 @@
+// page-property {
+	
+// 	}
+
+// .grid{
+// 	max-height: 100vh;
+// 	overflow: auto;
+// }
+$search-bar-height : 55px;
+$grid-header-height : 45px;
+$misc-page-height : 55px; // unaccounted for spacing
+$misc-page-width : 10px;
+
+// .row-ils-unit{
+// 	max-height: 80vh; 
+// 	overflow-y: auto;
+// }
+.property-information{
+	max-height: 95%;
+	// max-width: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}

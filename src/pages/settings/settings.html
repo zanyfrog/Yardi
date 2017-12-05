@@ -1,0 +1,286 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			Settings
+		</ion-title>
+	</ion-navbar>
+	<ion-toolbar no-border-top>
+		<ion-segment [(ngModel)]="section">
+			<ion-segment-button value="basic">
+				Default
+			</ion-segment-button>
+			<ion-segment-button value="entity">
+				Entities
+			</ion-segment-button>
+			<ion-segment-button value="page">
+				Pages
+			</ion-segment-button>
+		</ion-segment>
+		<button ion-button (click)="save($event)">Save</button>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<form>
+		<div [ngSwitch]="section">
+			<ion-grid *ngSwitchCase="'basic'">
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Server Name</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Server Name" type="text" [(ngModel)]="settings.dbServerName" name="dBServerName"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Database Name</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Database Name" type="text" [(ngModel)]="settings.databaseName" name="DatabaseName"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Platform</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Platform" type="text" [(ngModel)]="settings.platform" name="Platform"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>User Name</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="User Name" type="text" [(ngModel)]="settings.userName" name="UserName"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Password</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Password" type="text" [(ngModel)]="settings.password" name="Password"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Web Service URL</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Web Service URL" type="text" [(ngModel)]="settings.webServiceURL" name="WebServiceURL"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Voyager URL</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Voyager URL" type="text" [(ngModel)]="settings.voyagerURL" name="VoyagerURL"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Voyager Version</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Vendor Invoicing" type="text" [(ngModel)]="settings.voyagerVersion" name="VoyagerVersion"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Interface License</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Interface License" type="text" [(ngModel)]="settings.interfaceLicense" name="InterfaceLicense"></ion-input>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+
+			<ion-grid *ngSwitchCase="'entity'">
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Applicant Screening</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Applicant Screening" type="text" [(ngModel)]="settings.applicantScreening_Entity" name="applicantScreening_Entity"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Billing Payment</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Billing Payment" type="text" [(ngModel)]="settings.billingPayment_Entity" name="billingPayment_Entity"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Billing Payment SysBatch</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Billing Payment SysBatch" type="text" [(ngModel)]="settings.billingPayment_SysBatch_Entity" name="billingPayment_SysBatch_Entity"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Collections</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Collections" type="text" [(ngModel)]="settings.collections_Entity" name="collections_Entity"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>ILSGuest Card 20</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="ILSGuest Card 20" type="text" [(ngModel)]="settings.iLSGuestCard20_Entity" name="iLSGuestCard20_Entity"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>ILS Guest Card</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="ILS Guest Card" type="text" [(ngModel)]="settings.iLSGuestCard_Entity" name="iLSGuestCard_Entity"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Renters Insurance</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Renters Insurance" type="text" [(ngModel)]="settings.rentersinsurance_Entity" name="rentersinsurance_Entity"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Resident Data</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Resident Data" type="text" [(ngModel)]="settings.residentData_Entity" name="residentData_Entity"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Service Requests</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Service Requests" type="text" [(ngModel)]="settings.serviceRequests_Entity" name="serviceRequests_Entity"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Revenue Management</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Revenue Management" type="text" [(ngModel)]="settings.revenueManagement_Entity" name="revenueManagement_Entity"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Vendor Invoicing</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Vendor Invoicing" type="text" [(ngModel)]="settings.vendorInvoicing_Entity" name="vendorInvoicing_Entity"></ion-input>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+
+			<ion-grid *ngSwitchCase="'page'">
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Applicant Screening</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Applicant Screening" type="text" [(ngModel)]="settings.webPageApplicantScreening" name="webPageApplicantScreening"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Billing Payment</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Billing Payment" type="text" [(ngModel)]="settings.webPageBillingPayment" name="webPageBillingPayment"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Billing Payment SysBatch</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Billing Payment SysBatch" type="text" [(ngModel)]="settings.webPageBillingPayment_SysBatch" name="webPageBillingPayment_SysBatch"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Collections</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Collections" type="text" [(ngModel)]="settings.webPageCollections" name="webPageCollections"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>ILSGuest Card 20</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="ILSGuest Card 20" type="text" [(ngModel)]="settings.webPageILSGuestCard20" name="webPageILSGuestCard20"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>ILS Guest Card</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="ILS Guest Card" type="text" [(ngModel)]="settings.webPageILSGuestCard" name="webPageILSGuestCard"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Renters Insurance</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Renters Insurance" type="text" [(ngModel)]="settings.webPageRentersInsurance" name="webPageRentersInsurance"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Resident Data</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Resident Data" type="text" [(ngModel)]="settings.webPageResidentData" name="webPageResidentData"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Service Requests</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Service Requests" type="text" [(ngModel)]="settings.webPageServiceRequest" name="webPageServiceRequest"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Revenue Management</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Revenue Management" type="text" [(ngModel)]="settings.webPageRevenueManagement" name="webPageRevenueManagement"></ion-input>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-xl-2 col-lg-2 col-12 col-sm>
+						<ion-label>Vendor Invoicing</ion-label>
+					</ion-col>
+					<ion-col col-xl-4 col-lg-4 col-12 col-sm>
+						<ion-input placeholder="Vendor Invoicing" type="text" [(ngModel)]="settings.webPageVendorInvoicing" name="webPageVendorInvoicing"></ion-input>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+
+		</div>
+	</form>
+</ion-content>

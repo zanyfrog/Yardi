@@ -1,0 +1,47 @@
+<div class="property-information">
+	<ion-grid id="item-header">
+		<ion-row>
+			<ion-col class="d-none d-md-block col-2">&nbsp;</ion-col>
+			<ion-col class="col-10 panel-heading">
+				<h2>{{property.info.PropertyID.MarketingName}}</h2>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col class="d-none d-md-block col-2">&nbsp;</ion-col>
+			<ion-col class="col-xl-2 col-lg-3 col-md-4 col-sm-8 col-12 align-self-start">
+				<span>
+					{{property.AddressLine1}}
+					<br />
+				</span>
+				<span *ngIf="property.AddressLine2">
+					{{property.AddressLine2}}
+					<br />
+				</span>
+				<span *ngIf="property.AddressLine3">
+					{{property.AddressLine3}}
+					<br />
+				</span>
+				<span>
+					{{property.City}}, {{property.State}} {{property.Postal}}
+					<br />
+				</span>
+			</ion-col>
+			<ion-col class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12">
+				<span>
+					Rental Type: {{property.info.ILS_Identification['@RentalType']}}
+					<br/> Floor Plan(s): {{property.info.Floorplan.length}}
+					<br/> Unit(s): {{property.info.Information.UnitCount}}
+					<br />
+				</span>
+
+			</ion-col>
+		</ion-row>
+
+		<ion-row class="row-ils-unit" *ngIf="property.info.Information.UnitCount > 0" >
+			<ion-col col-xl-2 col-lg-3 col-md-3 col-sm-4 col-4 *ngFor="let item of property.info.ILS_Unit">
+				<!-- {{item['@IDValue']}} -->
+				<property-ils-unit [item]='item'></property-ils-unit>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</div>
